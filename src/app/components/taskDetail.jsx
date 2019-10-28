@@ -9,25 +9,32 @@ const TaskDetail = ({
     isComplete,
     groups
 }) => (
-    <div>
-        <h2>{task.name}</h2>
-        <button>Complete / Reopen Task</button>
-        <select>
-            {groups.map(group=>(
-                <option key={group.id} value={group.id}>{group.name}</option>
-            ))}
-        </select>
+        <div>
+            <div>
+                <input value={task.name} />
+            </div>
+            <div>
+                <button>Complete / Reopen Task</button>
+            </div>
+            <div>
+                <select>
+                    {groups.map(group => (
+                        <option key={group.id} value={group.id}>{group.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <Link to="/dashboard">
+                    <button>Done</button>
+                </Link>
+            </div>
 
-        <Link to="/dashboard">
-            <button>Done</button>
-        </Link>
+        </div>
+    );
 
-    </div>
-);
-
-const mapStateToProps = (state, ownProps)=> {
-    let id=ownProps.match.params.id;
-    let task = state.tasks.find(task=>task.id === id);
+const mapStateToProps = (state, ownProps) => {
+    let id = ownProps.match.params.id;
+    let task = state.tasks.find(task => task.id === id);
     let groups = state.groups;
 
     return {
