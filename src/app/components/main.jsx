@@ -5,6 +5,7 @@ import { store } from '../store';
 import { ConnectedDashboard } from './dashboard';
 import { history } from '../store/history';
 import { ConnectedNavigation } from './navigation';
+import { ConnectedTaskDetail } from './taskDetail'
 
 export const Main = () => (
     <Router history={history}>
@@ -13,6 +14,7 @@ export const Main = () => (
                 <ConnectedNavigation/>
                 {/* <ConnectedDashboard></ConnectedDashboard> */}
                 <Route exact path="/dashboard" render={()=>(<ConnectedDashboard/>)} />
+                <Route exact path="/task/:id" render={({match})=>(<ConnectedTaskDetail match={match} />)} />
             </div>
         </Provider>
     </Router>
