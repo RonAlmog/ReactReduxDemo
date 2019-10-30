@@ -38,11 +38,14 @@ export const updateTask= async task=>{
     }
 }
 app.post('/task/new', async (req, res)=>{
-    let task = await addNewTask(task);
+    let task = req.body.task;
+    await addNewTask(task);
     res.status(200).send();
 });
 
 app.post('/task/update', async (req, res)=>{
-    let task = await updateTask(task);
+    let task = req.body.task;
+    console.log('incoming task:', task);
+    await updateTask(task);
     res.status(200).send();
 });
