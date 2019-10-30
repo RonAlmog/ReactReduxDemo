@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
     "dev": "webpack-dev-server --open",
+    "start-dev": "concurrently \"npm run server\" \"npm run dev\" ",
     "initdb": "babel-node src/server/initialize-db",
     "server": "babel-node src/server/server",
     "testserver": "babel-node src/server/server.spec"
-
   },
   "keywords": [],
   "author": "",
@@ -30,6 +30,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "concurrently": "^5.0.0",
     "history": "^4.10.1",
     "mongodb": "^3.3.3",
     "react": "^16.11.0",
